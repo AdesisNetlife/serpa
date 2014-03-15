@@ -1,0 +1,52 @@
+{
+  "name": "serpa",
+  "version": "0.0.1",
+  "description": "A library for chaining promises",
+  "homepage": "https://github.com/AdesisNetlife/serpa",
+  "author": "Gonzalo Ruiz de Villa <gonzalo.ruizdevilla@gmail.com>",
+  "keywords": [
+    "q",
+    "promise",
+    "promises",
+    "promises-a",
+    "promises-aplus",
+    "deferred",
+    "future",
+    "async",
+    "flow control",
+    "fluent",
+    "chain",
+    "node"
+  ],
+  "contributors": [
+    "Gonzalo Ruiz de Villa <gonzalo.ruizdevilla@gmail.com>"
+  ],
+  "license": {
+    "type": "MIT",
+    "url": "https://raw.githubusercontent.com/AdesisNetlife/serpa/master/LICENSE"
+  },
+  "main": "q.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AdesisNetlife/serpa.git"
+  },
+  "engines": {
+    "node": ">=0.8.0"
+  },
+  "dependencies": {
+    "q": "~1.0.1"
+  },
+  "devDependencies": {
+    "gulp": "~3.5.6",
+    "gulp-util": "~2.2.14",
+    "gulp-jasmine": "~0.2.0",
+    "gulp-jshint": "~1.5.0"
+  },
+  "scripts": {
+    "test": "gulp jasmine",
+    "lint": "gulp lint"
+  },
+  "directories": {
+    "test": "./spec"
+  }
+}

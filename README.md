@@ -1,4 +1,4 @@
-serpa
+Serpa (series & parallel)
 =====
 
-serpa
+Serpa is a small utility library for promise chaining.
