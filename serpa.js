@@ -3,6 +3,7 @@
 var q = require("q"),
   series,
   parallel,
+  split,
   notPromise = {};
 
 function slice(arr) {
@@ -40,6 +41,21 @@ parallel = function parallel() {
     return f;
 };
 
+split = function split() {
+    var f, args;
+    args = slice(arguments);
+    f = function executingSplit(soFar){
+        if (Array.isArray(soFar)){
+            return q.all(soFar.map(function (element){
+                return args.reduce(when, q(element));
+            }));
+        } else {
+            return args.reduce(when, q(soFar));
+        }
+    };
+    return f;
+};
 
 exports.series = series;
 exports.parallel = parallel;
+exports.split = split;

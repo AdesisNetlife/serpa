@@ -19,12 +19,13 @@ function addThree(x) {
 }
 
 describe('serpa', function() {
-  var serpa, series, parallel;
+  var serpa, series, parallel, split;
 
   beforeEach(function() {
     serpa = require('../serpa');
     series = serpa.series;
     parallel = serpa.parallel;
+    split = serpa.split;
   });
 
   it('contains series method', function() {
@@ -92,6 +93,22 @@ describe('serpa', function() {
       expect(result).toEqual([4,5]);
       done();
     });
+
+  });
+
+  describe('split', function() {
+
+      it('executes a new series for each item in the input array of previous promises', function () {
+        var work = series(
+          split(
+            addTwo, addThree
+          )
+        );
+        work([1,2]).then(function (result){
+          expect(result).toEqual([6,7]);
+          done();
+        })
+      });
   });
 
 
