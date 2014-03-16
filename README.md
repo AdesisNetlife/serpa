@@ -1,5 +1,6 @@
 Serpa (series & parallel)
 =====
+[![Build Status](https://travis-ci.org/AdesisNetlife/serpa.png?branch=master)](https://travis-ci.org/AdesisNetlife/serpa)
 
 Serpa is a small utility library for promise chaining.
 
