@@ -26,5 +26,13 @@ describe('serpa', function() {
         done();
       });
     });
+
+    it('can start with non-promise values', function(done) {
+      var work = series(addTwo, addThree);
+      work(1).then(function (result) {
+        expect(result).toBe(6);
+        done();
+      });
+    });
   });
 });

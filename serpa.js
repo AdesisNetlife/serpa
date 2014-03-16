@@ -12,14 +12,14 @@ function when(soFar, element) {
     if (element.notPromise === notPromise) {
         return element(soFar);
     }
-    return soFar.then(element);
+    return q(soFar).then(element);
 }
 
 series = function series() {
     var f, args;
     args = slice(arguments);
     f = function executingSerie(soFar) {
-        return args.reduce(when, soFar || q());
+        return args.reduce(when, soFar);
     };
     f.notPromise = notPromise;
     return f;
