@@ -1,9 +1,28 @@
 'use strict';
 
-var q = require("q");
+var q = require("q"),
+  series,
+  notPromise = {};
 
-function series(){
-  return q();
+function slice(arr) {
+    return Array.prototype.slice.call(arr);
 }
+
+function when(soFar, element) {
+    if (element.notPromise === notPromise) {
+        return element(soFar);
+    }
+    return soFar.then(element);
+}
+
+series = function series() {
+    var f, args;
+    args = slice(arguments);
+    f = function executingSerie(soFar) {
+        return args.reduce(when, soFar || q());
+    };
+    f.notPromise = notPromise;
+    return f;
+};
 
 exports.series = series;
