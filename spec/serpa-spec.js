@@ -1,8 +1,6 @@
 'use strict';
 
-var q = require('q'),
-  serpa = require('../serpa'),
-  series = serpa.series;
+var q = require('q');
 
 function addTwo(x) {
   var defer = q.defer();
@@ -14,6 +12,14 @@ function addThree(x) {
 }
 
 describe('serpa', function() {
+  var serpa, series, parallel;
+
+  beforeEach(function() {
+    serpa = require('../serpa');
+    series = serpa.series;
+    parallel = serpa.parallel;
+  });
+
   it('contains series method', function() {
       var serpa = require("../serpa.js");
       expect(serpa.series).toBeTruthy();
@@ -31,6 +37,16 @@ describe('serpa', function() {
       var work = series(addTwo, addThree);
       work(1).then(function (result) {
         expect(result).toBe(6);
+        done();
+      });
+    });
+  });
+
+  describe('parallel', function() {
+    it('executes promises in parallel', function (done) {
+      var work = parallel(addTwo, addThree);
+      work(1).then(function (result) {
+        expect(result).toEqual([3,4]);
         done();
       });
     });

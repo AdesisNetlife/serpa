@@ -2,6 +2,7 @@
 
 var q = require("q"),
   series,
+  parallel,
   notPromise = {};
 
 function slice(arr) {
@@ -25,4 +26,20 @@ series = function series() {
     return f;
 };
 
+parallel = function parallel() {
+    var f, args;
+    args = slice(arguments);
+    f = function executingParallel(soFar) {
+      return q.all(args.map(
+          function (el) {
+              return when(soFar || q(), el);
+          }
+      ));
+    };
+    f.notPromise = notPromise;
+    return f;
+};
+
+
 exports.series = series;
+exports.parallel = parallel;
