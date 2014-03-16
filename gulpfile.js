@@ -16,7 +16,7 @@ gulp.task('lint', function() {
 });
 
 gulp.task('jasmine', function() {
-    gulp.src('spec/serpa-spec.js')
+    gulp.src(codeFiles)
         .pipe(jasmine());
 });
 
