@@ -19,7 +19,7 @@ function when(soFar, element) {
 series = function series() {
     var f, args;
     args = slice(arguments);
-    f = function executingSerie(soFar) {
+    f = function executingSeries(soFar) {
         return args.reduce(when, soFar);
     };
     f.notPromise = notPromise;
@@ -32,7 +32,7 @@ parallel = function parallel() {
     f = function executingParallel(soFar) {
       return q.all(args.map(
           function (el) {
-              return when(soFar || q(), el);
+              return when(soFar, el);
           }
       ));
     };
