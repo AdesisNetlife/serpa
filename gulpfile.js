@@ -32,4 +32,4 @@ gulp.task('watch', function() {
   gulp.watch(codeFiles, ['lint', 'jasmine']);
 });
 
-gulp.task('default', ['jasmine', 'lint', 'watch']);
+gulp.task('default', ['jasmine', 'lint']);
