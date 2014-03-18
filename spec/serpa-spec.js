@@ -116,7 +116,7 @@ describe('serpa', function() {
             addTwo, addThree
           )
         );
-        work({}).then(function () {}, function (err){
+        work({}).then(null, function (err){
           expect(err).toBe("'split' argument is not an Array: [object Object]");
           done();
         })
