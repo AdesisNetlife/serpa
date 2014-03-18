@@ -50,7 +50,7 @@ split = function split() {
                 return args.reduce(when, q(element));
             }));
         } else {
-            return args.reduce(when, q(soFar));
+            return q.reject("'split' argument is not an Array: " + soFar.toString());
         }
     };
     return f;

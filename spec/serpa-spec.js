@@ -98,7 +98,7 @@ describe('serpa', function() {
 
   describe('split', function() {
 
-      it('executes a new series for each item in the input array of previous promises', function () {
+      it('executes a new series for each item in the input array of previous promises', function (done) {
         var work = series(
           split(
             addTwo, addThree
@@ -106,6 +106,18 @@ describe('serpa', function() {
         );
         work([1,2]).then(function (result){
           expect(result).toEqual([6,7]);
+          done();
+        })
+      });
+
+      it('can only receive an array as first argument', function (done) {
+        var work = series(
+          split(
+            addTwo, addThree
+          )
+        );
+        work({}).then(function () {}, function (err){
+          expect(err).toBe("'split' argument is not an Array: [object Object]");
           done();
         })
       });
