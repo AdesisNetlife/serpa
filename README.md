@@ -1,6 +1,8 @@
 Serpa (series & parallel)
 =====
-[![Build Status](https://travis-ci.org/AdesisNetlife/serpa.png?branch=master)](https://travis-ci.org/AdesisNetlife/serpa) [![Dependency Status](https://gemnasium.com/AdesisNetlife/serpa.png)](https://gemnasium.com/AdesisNetlife/serpa) [![Coverage Status](https://coveralls.io/repos/AdesisNetlife/serpa/badge.png?branch=master)](https://coveralls.io/r/AdesisNetlife/serpa?branch=master)
+[![Build Status](https://travis-ci.org/AdesisNetlife/serpa.png?branch=master)](https://travis-ci.org/AdesisNetlife/serpa) [![Dependency Status](https://gemnasium.com/AdesisNetlife/serpa.png)](https://gemnasium.com/AdesisNetlife/serpa)
+[![Coverage Status](https://coveralls.io/repos/AdesisNetlife/serpa/badge.png?branch=master)](https://coveralls.io/r/AdesisNetlife/serpa?branch=master)
+[![Code Climate](https://codeclimate.com/github/AdesisNetlife/serpa.png)](https://codeclimate.com/github/AdesisNetlife/serpa)
 
 Serpa is a small utility library for promise chaining.
 
