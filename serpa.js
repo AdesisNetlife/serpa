@@ -3,6 +3,7 @@
 var q = require("q"),
   series,
   parallel,
+  preserve,
   split,
   notPromise = {};
 
@@ -16,6 +17,16 @@ function when(soFar, element) {
     }
     return q(soFar).then(element);
 }
+
+preserve = function preserve(fn) {
+  return function (value){
+    return q(value)
+      .then(fn)
+      .then(function (){
+        return value;
+      });
+  };
+};
 
 series = function series() {
     var f, args;
@@ -56,6 +67,7 @@ split = function split() {
     return f;
 };
 
-exports.series = series;
 exports.parallel = parallel;
+exports.preserve = preserve;
+exports.series = series;
 exports.split = split;
