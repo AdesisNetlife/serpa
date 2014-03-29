@@ -112,3 +112,21 @@ work([1,2,3]).then(function (result) {
 });
 
 ```
+
+
+## Preserve
+The tasks are executed and then the original value is returned
+
+```js
+var work = preserve(
+  series(
+    split(
+      addTwo, addThree
+    )
+  )
+);
+
+work([1,2]).then(function (result){
+  console.log(result); //eventually logs [1,2];
+});
+```
