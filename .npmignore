@@ -1,0 +1,8 @@
+gulpfile.*
+.travis.yml
+.npmignore
+.jshintrc
+.editorconfig
+.git
+coverage/
+spec/
