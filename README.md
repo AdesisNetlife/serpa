@@ -87,7 +87,7 @@ work(1).then(function (result) {
 ```
 
 ## Split
-The tasks are executed for each element of the array that is passed as argument.
+The tasks are executed for each element of the array that should be the input to the chain.
 
 ```js
 
