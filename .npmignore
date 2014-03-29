@@ -4,5 +4,6 @@ gulpfile.*
 .jshintrc
 .editorconfig
 .git
+.DS_Store
 coverage/
 spec/
